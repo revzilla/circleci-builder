@@ -13,9 +13,8 @@ RUN echo "deb http://packages.cloud.google.com/apt cloud-sdk-jessie main" | tee 
   curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | apt-key add - && \
   echo deb http://apt.postgresql.org/pub/repos/apt/ jessie-pgdg main > /etc/apt/sources.list.d/pgdg.list && \
   wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | apt-key add - && \
-  apt-get update -y && \
-  apt-get install -y jq git make curl google-cloud-sdk kubectl postgresql-client-9.5 && \
-  apt-get install -y unzip libnss3 libasound2 libgtk-3-0 libxss1 libxtst6 fonts-liberation libappindicator1 xdg-utils google-chrome-stable && \
+  curl -sL https://deb.nodesource.com/setup_8.x | bash - && \
+  apt-get install -y jq git make curl google-cloud-sdk kubectl postgresql-client-9.5 unzip libnss3 libasound2 libgtk-3-0 libxss1 libxtst6 fonts-liberation libappindicator1 xdg-utils google-chrome-stable bzip2 inotify-tools libfreetype6 libfontconfig nodejs=8.11.0-1nodesource1 && \
   apt-get clean && \
   rm -rf /var/lib/apt/lists/* /tmp/*
 
